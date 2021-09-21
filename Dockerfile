@@ -18,6 +18,8 @@ COPY apache2/sites-available/* /etc/apache2/sites-available/
 
 RUN if [ "$IMAGE_TYPE" = "apache" ]; then a2ensite web.conf; a2ensite production.conf; a2ensite pre-production.conf; a2ensite post-production.conf; fi
 
+USER docker
+
 ENV STARTUP_COMMAND_1='[ -z "$GIT_USER_NAME" ] || git config --global user.name "$GIT_USER_NAME"'
 ENV STARTUP_COMMAND_2='[ -z "$GIT_USER_EMAIL" ] || git config --global user.email "$GIT_USER_EMAIL"'
 ENV STARTUP_COMMAND_3='sed -i "s/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX/$WAKATIME_API_KEY/g"  /home/docker/.wakatime.cfg'
