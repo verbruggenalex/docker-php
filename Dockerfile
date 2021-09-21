@@ -3,8 +3,9 @@ ARG PHP_EXTENSIONS="apcu bcmath gd mysqli opcache pdo_mysql soap zip"
 ARG PHP_VERSION=7.4
 ARG NODE_VERSION=node12
 ARG IMAGE_VERSION=v4
+ARG IMAGE_TYPE=apache
 
-FROM thecodingmachine/php:$PHP_VERSION-$IMAGE_VERSION-apache-$NODE_VERSION
+FROM thecodingmachine/php:$PHP_VERSION-$IMAGE_VERSION-$IMAGE_TYPE-$NODE_VERSION
 
 USER root
 
