@@ -14,10 +14,10 @@ RUN apt-get update \
 
 COPY apache2/sites-available/* /etc/apache2/sites-available/
 
-RUN if [[ "$IMAGE_TYPE" = "apache" ]]; a2ensite web.conf && \
-    if [[ "$IMAGE_TYPE" = "apache" ]]; a2ensite production.conf && \
-    if [[ "$IMAGE_TYPE" = "apache" ]]; a2ensite pre-production.conf && \
-    if [[ "$IMAGE_TYPE" = "apache" ]]; a2ensite post-production.conf
+RUN if [[ "$IMAGE_TYPE" = "apache" ]]; then a2ensite web.conf; fi && \
+    if [[ "$IMAGE_TYPE" = "apache" ]]; then a2ensite production.conf; fi && \
+    if [[ "$IMAGE_TYPE" = "apache" ]]; then  pre-production.conf; fi && \
+    if [[ "$IMAGE_TYPE" = "apache" ]]; then a2ensite post-production.conf; fi
 
 USER docker
 
