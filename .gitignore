@@ -1,0 +1,6 @@
+/vendor/
+/web/
+/vscode-intelephense/
+/.idea/
+/.editorconfig
+/.gitattributes

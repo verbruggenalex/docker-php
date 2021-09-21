@@ -1,0 +1,30 @@
+version: '3'
+services:
+  web:
+    working_dir: ${PWD}
+    build:
+      context: .
+      args:
+        PHP_VERSION: ${PHP_VERSION:-7.4}
+    ports:
+      - 81:80
+      - 3000:3000
+    environment:
+      APACHE_DOCUMENT_ROOT: ${PWD}
+      GIT_USER_NAME:
+      GIT_USER_EMAIL:
+      GITHUB_API_TOKEN:
+      WAKATIME_API_KEY:
+    volumes:
+      - ${PWD}:${PWD}
+      - ~/.ssh:/home/docker/.ssh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=drupal
+    volumes:
+      - mysql:/var/lib/mysql
+volumes:
+  mysql:
