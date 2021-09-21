@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build ${{ matrix.php-version }} image
-        run: docker build . --file Dockerfile --tag image --build-arg PHP_VERSION=${{ matrix.php-version }}
+        run: docker build . --file Dockerfile --tag image --build-arg PHP_VERSION=${{ matrix.php-version }} IMAGE_VERSION=$IMAGE_VERSION NODE_VERSION=${{ matrix.node-version }}
 
       - name: Log into registries
         run: |
