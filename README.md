@@ -6,7 +6,7 @@
 
 ## About
 
-A Docker image based on [thecodingmachine/php:7.x-v4-apache-node12](https://github.com/thecodingmachine/docker-images-php#general-purpose-php-images-for-docker)
+A Docker image based on [thecodingmachine/php:8.0-v4-apache-node12](https://github.com/thecodingmachine/docker-images-php#general-purpose-php-images-for-docker)
 **This is not an official docker image!** Subject to change as
 it is used for personal development purposes.
 
@@ -14,16 +14,26 @@ it is used for personal development purposes.
 
 ### From Dockerhub
 ```bash
-docker pull docker.io/verbral/php:7.2
-docker pull docker.io/verbral/php:7.3
-docker pull docker.io/verbral/php:7.4
+docker pull docker.io/verbral/php:7.4-v4-apache-node12
+docker pull docker.io/verbral/php:8.0-v4-apache-node12
+docker pull docker.io/verbral/php:7.4-v4-apache-node14
+docker pull docker.io/verbral/php:8.0-v4-apache-node14
+docker pull docker.io/verbral/php:7.4-v4-fpm-node12
+docker pull docker.io/verbral/php:8.0-v4-fpm-node12
+docker pull docker.io/verbral/php:7.4-v4-fpm-node14
+docker pull docker.io/verbral/php:8.0-v4-fpm-node14
 ```
 
 ### From Github
 ```bash
-docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.2
-docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.3
-docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.4
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.4-v4-apache-node12
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:8.0-v4-apache-node12
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.4-v4-apache-node14
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:8.0-v4-apache-node14
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.4-v4-fpm-node12
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:8.0-v4-fpm-node12
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.4-v4-fpm-node14
+docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:8.0-v4-fpm-node14
 ```
 
 ## Usage:
@@ -35,7 +45,7 @@ docker pull docker.pkg.github.com/verbruggenalex/docker-php/php:7.4
 version: '3'
 services:
   web:
-    image: verbral/php:7.4
+    image: verbral/php:8.0-v4-apache-node12
     working_dir: ${PWD}
     ports:
       - 80:80
