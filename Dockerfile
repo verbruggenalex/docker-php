@@ -16,7 +16,7 @@ COPY apache2/sites-available/* /etc/apache2/sites-available/
 
 RUN if [[ "$IMAGE_TYPE" = "apache" ]]; then a2ensite web.conf; fi && \
     if [[ "$IMAGE_TYPE" = "apache" ]]; then a2ensite production.conf; fi && \
-    if [[ "$IMAGE_TYPE" = "apache" ]]; then  pre-production.conf; fi && \
+    if [[ "$IMAGE_TYPE" = "apache" ]]; then a2ensite pre-production.conf; fi && \
     if [[ "$IMAGE_TYPE" = "apache" ]]; then a2ensite post-production.conf; fi
 
 USER docker
