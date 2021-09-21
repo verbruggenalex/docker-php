@@ -39,8 +39,8 @@ jobs:
           docker tag image docker.io/verbral/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
           docker push docker.io/verbral/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
           # Push to Github.
-          docker tag image docker.pkg.github.com/verbruggenalex/docker-php-theia/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
-          docker push docker.pkg.github.com/verbruggenalex/docker-php-theia/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
+          docker tag image docker.pkg.github.com/verbruggenalex/docker-php/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
+          docker push docker.pkg.github.com/verbruggenalex/docker-php/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
 
       - name: Sync Readme to Dockerhub
         uses: meeDamian/sync-readme@v1.0.6
