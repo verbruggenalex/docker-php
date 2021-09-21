@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build ${{ matrix.php-version }} image
-        run: docker build . --file Dockerfile --tag image --build-arg PHP_VERSION=${{ matrix.php-version }} --build-arg IMAGE_VERSION=$IMAGE_VERSION --build-arg PHP_VERSION=${{ matrix.image-type }} --build-arg NODE_VERSION=${{ matrix.node-version }}
+        run: docker build . --file Dockerfile --tag image --build-arg PHP_VERSION=${{ matrix.php-version }} --build-arg IMAGE_VERSION=$IMAGE_VERSION --build-arg IMAGE_TYPE=${{ matrix.image-type }} --build-arg NODE_VERSION=${{ matrix.node-version }}
 
       - name: Log into registries
         run: |
@@ -36,11 +36,11 @@ jobs:
       - name: Push ${{ matrix.php-version }} image to registries
         run: |
           # Push to Dockerhub.
-          docker tag image docker.io/verbral/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-apache-${{ matrix.node-version }}
-          docker push docker.io/verbral/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-apache-${{ matrix.node-version }}
+          docker tag image docker.io/verbral/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
+          docker push docker.io/verbral/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
           # Push to Github.
-          docker tag image docker.pkg.github.com/verbruggenalex/docker-php-theia/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-apache-${{ matrix.node-version }}
-          docker push docker.pkg.github.com/verbruggenalex/docker-php-theia/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-apache-${{ matrix.node-version }}
+          docker tag image docker.pkg.github.com/verbruggenalex/docker-php-theia/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
+          docker push docker.pkg.github.com/verbruggenalex/docker-php-theia/$IMAGE_NAME:${{ matrix.php-version }}-$IMAGE_VERSION-${{ matrix.image-type }}-${{ matrix.node-version }}
 
       - name: Sync Readme to Dockerhub
         uses: meeDamian/sync-readme@v1.0.6
